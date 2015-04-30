@@ -11,9 +11,11 @@
   },
   "validations": [],
   "relations": {
-    "type": "hasMany",
-    "model": "Comments",
-    "foreignKey": "discussionId"
+    "comments": {
+      "type": "hasMany",
+      "model": "Comment",
+      "foreignKey": "discussionId"
+    }
   },
   "acls": [],
   "methods": []
