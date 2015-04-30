@@ -78,7 +78,7 @@
     "dataSource": "db",
     "public": true
   },
-  "Appartment": {
+  "Apartment": {
     "dataSource": "db",
     "public": true
   },
