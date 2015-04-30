@@ -7,11 +7,15 @@
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "address": {
       "type": "string",
       "required": true
     },
-    "address": {
+    "entrance": {
+      "type": "string",
+      "required": false
+    },
+    "apartment": {
       "type": "string",
       "required": true
     },
