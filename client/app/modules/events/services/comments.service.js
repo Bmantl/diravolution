@@ -1,16 +1,34 @@
 'use strict';
 var app = angular.module('com.module.events');
 
-app.service('CommentsService', ['$state', 'CoreService', 'Comment', 'gettextCatalog', function($state,
-                                                                                         CoreService, Comment, gettextCatalog) {
+app.service('CommentsService', ['$state', 'CoreService', 'Comment', 'gettextCatalog', 'Apartment', function($state,
+                                                                                         CoreService, Comment, gettextCatalog, Apartment) {
+  this.getApt = function(apartid, cb) {
+    Apartment.findOne({filter : {where:{id: apartid}, include: {discussion: 'comments'}}}, function(apt){
+      cb(apt);
+    } );
+  };
 
-  this.getComments = function() {
-    return Comment.find();
+
+  this.getComments = function(apartid) {
+    Apartment.findOne({filter : {where:{id: apartid}, include: {discussion: 'comments'}}}, function(apt){
+      return apt.discussion.comments;
+    } );
+
+    return Comment.find('{apartmentId: }');
   };
 
   this.getComment = function(id) {
     return Comment.findById({
       id: id
+    });
+  };
+
+  this.getCommentAsync = function(id, cb) {
+    Comment.findById({
+      id: id
+    }, function(comment){
+      cb(comment);
     });
   };
 

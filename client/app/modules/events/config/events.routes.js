@@ -18,8 +18,8 @@ angular.module('com.module.events')
       templateUrl: 'modules/events/views/form.html',
       controller: 'CommentsCtrl'
     }).state('app.events.view', {
-      url: '/:id',
-      templateUrl: 'modules/events/views/view.html',
+      url: '/:apartid',
+      templateUrl: 'modules/events/views/list.html',
       controller: 'CommentsCtrl'
     });
   });

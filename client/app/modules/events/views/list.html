@@ -24,7 +24,7 @@
     <div class="row">
       <div class="col-md-6">
 
-          <p class="setting"><span>Detail 1: </span> blarg</p>
+          <p class="setting" ng-mode = ><span>Detail 1: </span> blarg</p>
 
           <p class="setting"><span>Detail 2: </span> blarg</p>
 
@@ -97,12 +97,14 @@
       <a href="" class="btn btn-sm btn-default" ng-click="delete({id: item.id})">
         <i class="fa fa-trash-o"></i>
       </a>
-      <a href="" class="secondary-content" ng-click="like({id: item.id})">
-        <i class="mdi-action-grade" ></i>
+      <a href="" class="btn btn-sm btn-default" ng-click="like({id: item.id}, $index)">
+        <i class="fa fa-gavel" ></i>
       </a>
+
     </span>
 
       <span class="title"><p >{{item.text}}</p></span>
+      <span class="title"><p >{{item.rating === undefined ? 0 : item.rating}}</p></span>
 
       <p><b>{{item.UserName}}</b>, {{item.date.toString().split('T')[0] + ', ' + item.date.toString().split('T')[1].split('.')[0]}}</p>
 
