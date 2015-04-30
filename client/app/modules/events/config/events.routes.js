@@ -8,18 +8,18 @@ angular.module('com.module.events')
     }).state('app.events.list', {
       url: '',
       templateUrl: 'modules/events/views/list.html',
-      controller: 'EventsCtrl'
+      controller: 'CommentsCtrl'
     }).state('app.events.add', {
       url: '/add',
       templateUrl: 'modules/events/views/form.html',
-      controller: 'EventsCtrl'
+      controller: 'CommentsCtrl'
     }).state('app.events.edit', {
       url: '/:id/edit',
       templateUrl: 'modules/events/views/form.html',
-      controller: 'EventsCtrl'
+      controller: 'CommentsCtrl'
     }).state('app.events.view', {
       url: '/:id',
       templateUrl: 'modules/events/views/view.html',
-      controller: 'EventsCtrl'
+      controller: 'CommentsCtrl'
     });
   });
