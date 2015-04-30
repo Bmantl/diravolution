@@ -7,12 +7,14 @@
     "validateUpsert": true
   },
   "properties": {
+  
+  },
+  "validations": [],
+  "relations": {
     "type": "hasMany",
     "model": "comments",
     "foreignKey": "discussionId"
   },
-  "validations": [],
-  "relations": {},
   "acls": [],
   "methods": []
 }

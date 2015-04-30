@@ -18,7 +18,11 @@
     "location": {
       "type": "geopoint",
       "required": true
-    },
+    }
+
+  },
+  "validations": [],
+  "relations": {
     "discussion":{
       "type": "hasOne",
       "model": "discussion",
@@ -30,8 +34,6 @@
       "foreignKey": "appartmentId"
     }
   },
-  "validations": [],
-  "relations": {},
   "acls": [],
   "methods": []
 }
