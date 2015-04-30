@@ -10,6 +10,10 @@
     "dataSource": "db",
     "public": false
   },
+  "user": {
+    "dataSource": "db",
+    "public": false
+  },
   "accessToken": {
     "dataSource": "db",
     "public": true
@@ -71,6 +75,22 @@
     "public": true
   },
   "user": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Appartment": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Ticket": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Discussion": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Comment": {
     "dataSource": "db",
     "public": true
   }

@@ -1,6 +1,13 @@
 {
   "db": {
+    "host": "candidate.34.mongolayer.com",
+    "port": 10942,
+    "database": "hackathon",
+    "username": "group",
+    "password": "group",
     "name": "db",
-    "connector": "memory"
+    "defaultForType": "db",
+    "connector": "mongodb",
+    "user": "group"
   }
 }

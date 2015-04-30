@@ -1,0 +1,27 @@
+{
+  "name": "Ticket",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "area": {
+      "type": "number"
+    },
+    "rooms": {
+      "type": "number"
+    },
+    "flatmates": {
+      "type": "number"
+    },
+    "price": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
