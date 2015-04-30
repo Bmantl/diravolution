@@ -29,13 +29,13 @@
   "relations": {
     "discussion":{
       "type": "hasOne",
-      "model": "discussion",
-      "foreignKey": "appartmentId"
+      "model": "Discussion",
+      "foreignKey": "apartmentId"
     },
     "tickets":{
       "type": "hasMany",
-      "model": "ticket",
-      "foreignKey": "appartmentId"
+      "model": "Ticket",
+      "foreignKey": "apartmentId"
     }
   },
   "acls": [],

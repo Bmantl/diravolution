@@ -28,7 +28,7 @@
     },
     "comments":{
       "type": "hasMany",
-      "model": "comment",
+      "model": "Comment",
       "foreignKey": "userId"
     }
   },
