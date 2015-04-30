@@ -1,5 +1,51 @@
 /*jshint sub:true*/
 'use strict';
+
+
+angular.module('com.module.events').controller('CommentsCtrl', function($scope, $state, $stateParams, CommentsService,
+                                     gettextCatalog) {
+
+  $scope.formFields = [{
+    key: 'title',
+    type: 'text',
+    label: gettextCatalog.getString('Title'),
+    required: true
+  }, {
+    key: 'body',
+    type: 'textarea',
+    label: gettextCatalog.getString('Body'),
+    required: true
+  }];
+
+  $scope.formOptions = {
+    uniqueFormId: true,
+    hideSubmit: false,
+    submitCopy: 'Save'
+  };
+
+  $scope.delete = function(id) {
+    CommentsService.deleteComment(id, function() {
+      $scope.comments = CommentsService.getComments();
+    });
+  };
+
+  $scope.onSubmit = function() {
+    CommentsService.upsertComment($scope.comment, function() {
+      $scope.comments = CommentsService.getComments();
+      $state.go('^.list');
+    });
+  };
+
+  $scope.comments = CommentsService.getComments();
+
+  if ($stateParams.id) {
+    $scope.comment = CommentsService.getComment($stateParams.id);
+  } else {
+    $scope.comment = {};
+  }
+
+});
+
 angular.module('com.module.events')
   .controller('EventsCtrl', function($scope, $state, $stateParams, CoreService,
     Event, gettextCatalog) {
