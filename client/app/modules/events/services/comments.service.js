@@ -15,11 +15,11 @@ app.service('CommentsService', ['$state', 'CoreService', 'Comment', 'gettextCata
   };
 
   this.upsertComment = function(comment, cb) {
-    Comment.upsert(comment, function() {
+    Comment.upsert(comment, function(commentResponse) {
       CoreService.toastSuccess(gettextCatalog.getString(
         'Comment saved'), gettextCatalog.getString(
         'Your comment is safe with us!'));
-      cb();
+      cb(commentResponse);
     }, function(err) {
       CoreService.toastSuccess(gettextCatalog.getString(
         'Error saving comment '), gettextCatalog.getString(

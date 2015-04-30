@@ -3,17 +3,12 @@
 
 
 angular.module('com.module.events').controller('CommentsCtrl', function($scope, $state, $stateParams, CommentsService,
-                                     gettextCatalog) {
+                                     gettextCatalog, User) {
 
   $scope.formFields = [{
-    key: 'title',
+    key: 'text',
     type: 'text',
-    label: gettextCatalog.getString('Title'),
-    required: true
-  }, {
-    key: 'body',
-    type: 'textarea',
-    label: gettextCatalog.getString('Body'),
+    label: gettextCatalog.getString('Comment:'),
     required: true
   }];
 
@@ -29,10 +24,25 @@ angular.module('com.module.events').controller('CommentsCtrl', function($scope, 
     });
   };
 
+  $scope.like = function(id) {
+    var newcomment = CommentsService.getComment(id);
+    newcomment.rating = newcomment.rating + 1;
+    CommentsService.upsertComment(newcomment);
+  };
+
   $scope.onSubmit = function() {
-    CommentsService.upsertComment($scope.comment, function() {
-      $scope.comments = CommentsService.getComments();
-      $state.go('^.list');
+
+    User.getCurrent(function(user){
+      $scope.comment.UserName = user.username;
+      CommentsService.upsertComment($scope.comment, function(commentResponse) {
+        //var commentNew = $scope.comment;
+        $scope.comment.text = "";
+
+        $scope.comments.push(commentResponse);
+    });
+
+
+      //$state.go('^.list');
     });
   };
 
