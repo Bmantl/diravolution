@@ -1,3 +1,3 @@
-module.exports = function(Appartment) {
+module.exports = function(Apartment) {
 
 };
