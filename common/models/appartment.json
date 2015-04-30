@@ -19,9 +19,21 @@
       "type": "geopoint",
       "required": true
     }
+
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "discussion":{
+      "type": "hasOne",
+      "model": "discussion",
+      "foreignKey": "appartmentId"
+    },
+    "tickets":{
+      "type": "hasMany",
+      "model": "ticket",
+      "foreignKey": "appartmentId"
+    }
+  },
   "acls": [],
   "methods": []
 }

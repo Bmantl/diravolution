@@ -6,9 +6,15 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+  
+  },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "type": "hasMany",
+    "model": "comments",
+    "foreignKey": "discussionId"
+  },
   "acls": [],
   "methods": []
 }
