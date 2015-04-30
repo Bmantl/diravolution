@@ -17,6 +17,9 @@
     },
     "likes": {
       "type": "number"
+    },
+    "UserName": {
+      "type":"string"
     }
   },
   "validations": [],
