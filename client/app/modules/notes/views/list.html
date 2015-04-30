@@ -1,22 +1,88 @@
-<div class='list-group'>
-  <div ng-repeat="item in notes" class="list-group-item">
-    <span class="pull-right btn-group" style="margin-top: 7px;">
-      <a href="" class="btn btn-sm btn-default" ui-sref="^.edit({id: item.id})">
-        <i class="fa fa-pencil"></i>
-      </a>
-      <a href="" class="btn btn-sm btn-default" ng-click="delete({id: item.id})">
-        <i class="fa fa-trash-o"></i>
-      </a>
-    </span>
-    <h4 class="list-group-item-heading">
-      <a href="" ui-sref="^.view({id: item.id})">{{item.title}}</a>
-    </h4>
-    <p class="list-group-item-text">{{item.body}}</p>
+
+<div class="wrapper">
+  <div class="container">
+    <h1>Select Your City</h1>
+
+    <div class="image-zoom-container">
+      <div class="zoom-container">
+        <a href="#" ng-click="setCity(31.783205, 35.217931);">
+					<span class="zoom-caption">
+						<h3>Jerusalem</h3>
+					</span>
+          <img src="../../images/images/jerusalem.jpg" />
+        </a>
+      </div>
+      <div class="zoom-container">
+        <a href="#" ng-click="setCity(32.796231, 34.994288);">
+					<span class="zoom-caption">
+						<h3>Haifa</h3>
+					</span>
+          <img src="../../images/images/haifa.jpg" />
+        </a>
+      </div>
+      <div class="zoom-container">
+        <a href="#" ng-click="setCity(31.239318, 34.798072);">
+					<span class="zoom-caption">
+						<h3>Beer Sheva</h3>
+					</span>
+          <img src="../../images/images/brsheva.jpg" />
+        </a>
+      </div>
+      <div class="zoom-container">
+        <a href="#" ng-click="setCity(31.675880, 34.577318);">
+					<span class="zoom-caption">
+						<h3>Ashkelon</h3>
+					</span>
+          <img src="../../images/images/ashkelon.jpg" />
+        </a>
+      </div>
+      <div class="zoom-container">
+        <a href="#" ng-click="setCity(32.077918, 34.774318);">
+					<span class="zoom-caption">
+						<h3>Tel-Aviv</h3>
+					</span>
+          <img src="../../images/images/telaviv.jpg" />
+        </a>
+      </div>
+      <div class="zoom-container">
+        <a href="#" ng-click="setCity(29.554312, 34.948144);">
+					<span class="zoom-caption">
+						<h3>Eilat</h3>
+					</span>
+          <img src="../../images/images/eilat.jpg" />
+        </a>
+      </div>
+      <div class="zoom-container">
+        <a href="#" ng-click="setCity(33.209838, 35.570265);">
+					<span class="zoom-caption">
+						<h3>Qiryat Shemona</h3>
+					</span>
+          <img src="../../images/images/kiryatshemona.jpg" />
+        </a>
+      </div>
+      <div class="zoom-container">
+        <a href="#" ng-click="setCity(32.103687, 35.185758);">
+					<span class="zoom-caption">
+						<h3>Ariel</h3>
+					</span>
+          <img src="../../images/images/ariel.jpg" />
+        </a>
+      </div>
+      <div class="zoom-container">
+        <a href="#" ng-click="setCity(31.892287, 34.996825);">
+					<span class="zoom-caption">
+						<h3>Modi'in</h3>
+					</span>
+          <img src="../../images/images/modiin.jpg" />
+        </a>
+      </div>
+    </div>
+    <!--/.image-zoom-container-->
+
+    <hr />
+
+    <p class="centered">Powered by <a href="https://www.facebook.com/yehuda.ba.50?fref=ts">Yehuda Bab</a></p>
   </div>
-  <div ng-show="!notes.length" class="list-group-item">
-    <h4 class="list-group-item-heading" translate>
-      There are no notes
-    </h4>
-    <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a> to add a note!</p>
-  </div>
+  <!--/.container-->
 </div>
+<!--/.wrapper-->
