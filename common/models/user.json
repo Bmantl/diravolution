@@ -25,6 +25,11 @@
       "model": "Role",
       "foreignKey": "principalId",
       "through": "RoleMapping"
+    },
+    "comments":{
+      "type": "hasMany",
+      "model": "comment",
+      "foreignKey": "userId"
     }
   },
   "acls": [

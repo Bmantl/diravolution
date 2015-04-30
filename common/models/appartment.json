@@ -18,6 +18,16 @@
     "location": {
       "type": "geopoint",
       "required": true
+    },
+    "discussion":{
+      "type": "hasOne",
+      "model": "discussion",
+      "foreignKey": "appartmentId"
+    },
+    "tickets":{
+      "type": "hasMany",
+      "model": "ticket",
+      "foreignKey": "appartmentId"
     }
   },
   "validations": [],
