@@ -1,5 +1,5 @@
 <head>
-  <title>Bootstrap Example</title>
+  <title>{apartment.address}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
@@ -15,28 +15,35 @@
   </style>
 </head>
 
-<div id="w" class="row">
-  <div id="content" class="container">
-    <section>
+<div  class="row" style="background-color: #333;border-radius: 25px;">
+
+  <div id="content" class="container" style="background-color: #333;border-radius: 25px;">
+    <section style="background-color: #333;border-radius: 25px;">
       <p class="apartment-name">{{apartment.address}}</p>
     </section>
 
-    <div class="row">
-      <div class="col-md-6">
+    <div class="row" style ="font-size: 62.5%; ">
+      <div class="col-md-6 collection" style="background-color: #333; font-family:'Raleway', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 2em;
+  line-height: 1.6;
+  font-weight: 400;
+      border-radius: 25px;
+      font-color: #ffffff;
+         border: 2px solid #000000;
+         ">
 
-          <p class="setting"><span>address: </span> {{apartment.address}}</p>
+          <p class="collection-item" style="background-color: #333;color: #dddddd;"><span class = "pull-right">{{apartment.address}}</span>Address:</p>
 
-        <p class="setting"><span>price: </span>{{ticket.price}} </p>
+        <p class="collection-item " style="background-color: #333;color: #dddddd"><span class = "pull-right">{{ticket.price}}</span>Price:</p>
 
-          <p class="setting"><span>flatmates: </span> {{ticket.flatmates}}</p>
+          <p class="collection-item" style="background-color: #333;color: #dddddd"><span class = "pull-right">{{ticket.flatmates}}</span>Flatmates:</p>
 
-          <p class="setting"><span>area: </span> {{ticket.area}}</p>
+          <p class="collection-item" style="background-color: #333;color: #dddddd"><span class = "pull-right">{{ticket.area}}</span>Area:</p>
 
-          <p class="setting"><span>rooms : </span> {{ticket.rooms}}</p>
+          <p class="collection-item" style="background-color: #333;color: #dddddd"><span class = "pull-right">{{ticket.rooms}}</span>Rooms:</p>
 
-          <p class="setting"><span>for roomies: </span> {{ticket.forRoomies}}</p>
+          <p class="collection-item"style="background-color: #333;color: #dddddd" ><span class = "pull-right">{{ticket.forRoomies}}</span>For roomies:</p>
 
-          <p class="setting"><span>are searching: </span> {{ticket.flatmates-ticket.currFlatmates}}</p>
+          <p class="collection-item" style="background-color: #333;color: #dddddd"><span class = "pull-right">{{ticket.flatmates-ticket.currFlatmates}}</span>Searching:</p>
 
       </div>
       <div class="col-md-6">
