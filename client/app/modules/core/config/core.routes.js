@@ -15,8 +15,8 @@ angular.module('com.module.core')
       })
       .state('app.home', {
         url: '',
-        templateUrl: 'modules/core/views/home.html',
-        controller: 'HomeCtrl'
+        templateUrl: 'modules/landingScreen/views/list.html',
+        controller: 'LandingScreenCtrl'
       });
     $urlRouterProvider.otherwise('/router');
   });
