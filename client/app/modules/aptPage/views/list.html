@@ -89,14 +89,14 @@
 
     <div ng-repeat="item in comments" class="collection-item">
     <span class="pull-right btn-group" style="margin-top: 7px;">
-      <a href="" class="btn btn-sm btn-default" ng-click="like({id: item.id}, $index)">
+      <a href="" class="btn btn-sm btn-default pull-left" ng-click="like({id: item.id}, $index)">
         <i class="fa fa-gavel" ></i>
       </a>
 
     </span>
 
-      <span class="title"><p >{{item.text}}</p></span>
-      <span class="title"><p >{{item.rating === undefined ? 0 : item.rating}}</p></span>
+      <span class="title pull-right"><p >{{item.text}}</p></span>
+      <span class="title "><p >{{item.rating === undefined ? 0 : item.rating}}</p></span>
 
       <p><b>{{item.UserName}}</b>, {{item.date.toString().split('T')[0] + ', ' + item.date.toString().split('T')[1].split('.')[0]}}</p>
 
