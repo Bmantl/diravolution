@@ -60,8 +60,16 @@ angular.module('com.module.events').controller('CommentsCtrl', function($scope, 
    CommentsService.getApt($stateParams.apartid, function(apt){
      $scope.apartment = apt;
      $scope.comments = $scope.apartment.discussion.comments;
+     CommentsService.getTkt(apt.id, function(tkt) {
+        $scope.ticket = tkt;
+       console.log($scope.ticket);
+     });
+
      console.log($scope.comments);
+     console.log($scope.apartment);
   });
+  console.log("////////////////////////////out");
+  console.log($scope.apartment);
 
 
   //if ($stateParams.id) {

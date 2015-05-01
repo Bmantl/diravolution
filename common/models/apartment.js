@@ -8,6 +8,16 @@ module.exports = function(Apartment) {
       }
     })
     next();
-  }
+  },
+    Apartment.afterCreate = function(next) {
+      var D = Apartment.app.models.Ticket;
+      var d = {"apartmentId":  this.id};
+      D.create(d, function(err, newD){
+        if (err){
+          return;
+        }
+      })
+      next();
+    }
 
 };

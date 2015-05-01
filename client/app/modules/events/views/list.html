@@ -18,25 +18,25 @@
 <div id="w" class="row">
   <div id="content" class="container">
     <section>
-      <p class="apartment-name">Yad Harutzim 6</p>
+      <p class="apartment-name">{{apartment.address}}</p>
     </section>
 
     <div class="row">
       <div class="col-md-6">
 
-          <p class="setting" ng-mode = ><span>Detail 1: </span> blarg</p>
+          <p class="setting"><span>address: </span> {{apartment.address}}</p>
 
-          <p class="setting"><span>Detail 2: </span> blarg</p>
+        <p class="setting"><span>price: </span>{{ticket.price}} </p>
 
-          <p class="setting"><span>Detail 3: </span> blarg</p>
+          <p class="setting"><span>flatmates: </span> {{ticket.flatmates}}</p>
 
-          <p class="setting"><span>Detail 4: </span> blarg</p>
+          <p class="setting"><span>area: </span> {{ticket.area}}</p>
 
-          <p class="setting"><span>Detail 5: </span> blarg</p>
+          <p class="setting"><span>rooms : </span> {{ticket.rooms}}</p>
 
-          <p class="setting"><span>Detail 6: </span> blarg</p>
+          <p class="setting"><span>for roomies: </span> {{ticket.forRoomies}}</p>
 
-          <p class="setting"><span>Detail 7: </span> blarg</p>
+          <p class="setting"><span>are searching: </span> {{ticket.flatmates-ticket.currFlatmates}}</p>
 
       </div>
       <div class="col-md-6">
@@ -119,9 +119,11 @@
     </div>
     <formly-form result="comment" fields="formFields" options="formOptions" ng-submit="onSubmit()"></formly-form>
     <div class="controls">
-      <button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>
+      <a href="" class="btn btn-sm btn-default" ng-click="onSubmit()">
+        <i class="fa fa-share-square" ></i>
+      </a>
+      <!--<button class="btn btn-primary btn-success" ng-click="onSubmit()" translate>Submit</button>-->
     </div>
-    <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a> to add a comment!</p>
   </div>
 
 </div>

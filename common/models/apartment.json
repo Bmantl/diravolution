@@ -23,18 +23,23 @@
       "type": "geopoint",
       "required": true
     }
-
   },
   "validations": [],
+
   "relations": {
     "discussion":{
       "type": "hasOne",
       "model": "Discussion",
       "foreignKey": "apartmentId"
     },
-    "tickets":{
+    "ticket":{
       "type": "hasMany",
       "model": "Ticket",
+      "foreignKey": "apartmentId"
+    },
+    "partners":{
+      "type": "hasMany",
+      "model": "User",
       "foreignKey": "apartmentId"
     }
   },

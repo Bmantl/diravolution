@@ -18,7 +18,15 @@
     },
     "price": {
       "type": "number"
+    },
+    "forRoomies":{
+      "type": "boolean",
+      "requiered": true
+    },
+    "currFlatmates": {
+      "type": "number"
     }
+
   },
   "validations": [],
   "relations": {},
