@@ -1,29 +1,31 @@
 'use strict';
 angular.module('com.module.files')
-  .controller('FilesCtrl', function($scope, $http, CoreService, gettextCatalog) {
+  .controller('FilesCtrl', function($scope, $rootScope, $http, CoreService, gettextCatalog, Apartment) {
     $scope.map = {center: {latitude: 0, longitude: 0 }, zoom: 14 };
     $scope.options = {scrollwheel: false};
 
+    $scope.show = true;
+    //focus on israel
+    var initialZoom = 6;
+    var centeredArea = new google.maps.LatLng(32.296139, 34.852219);
+
+    if($rootScope.savedCity){
+      console.log("Saved City");
+      initialZoom = 15;
+      centeredArea = new google.maps.LatLng($rootScope.savedCity.lat, $rootScope.savedCity.lng);
+    }
     var mapOptions = {
-      zoom: 6,
-      center: new google.maps.LatLng(32.296139, 34.852219),
+      zoom: initialZoom,
+      center: centeredArea,
       mapTypeId: google.maps.MapTypeId.TERRAIN
     };
+
+
 
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
     $scope.markers = [];
-    var bounds = new google.maps.LatLngBounds();
-
     var markers = [];
-    //$scope.map = new google.maps.Map(document.getElementById('map-canvas'), {
-    //  mapTypeId: google.maps.MapTypeId.ROADMAP
-    //});
-
-    //var defaultBounds = new google.maps.LatLngBounds(
-    //  new google.maps.LatLng(32.296139, 34.852219),
-    //  new google.maps.LatLng(32.296139, 34.852219));
-    ////$scope.map.fitBounds(defaultBounds);
 
     // Create the search box and link it to the UI element.
     var input = /** @type {HTMLInputElement} */(
@@ -42,15 +44,6 @@ angular.module('com.module.files')
         return;
       }
 
-      var markerTemp= {
-        city : 'Israel',
-        desc : 'This is the best city in the world!',
-        lat : 32.296139,
-        long : 34.852219
-      };
-
-      markers.push(markerTemp);
-
       for (var i = 0, marker; marker = markers[i]; i++) {
         marker.setMap(null);
       }
@@ -68,6 +61,7 @@ angular.module('com.module.files')
           scaledSize: new google.maps.Size(25, 25)
         };
 
+
         // Create a marker for each place.
         var marker = new google.maps.Marker({
           map: $scope.map,
@@ -84,6 +78,42 @@ angular.module('com.module.files')
       $scope.map.fitBounds(bounds);
     });
 
+    $scope.openInfoWindow = function(e, selectedMarker){
+      e.preventDefault();
+      google.maps.event.trigger(selectedMarker, 'click');
+    };
+
+
+    var infoWindow = new google.maps.InfoWindow();
+
+    /**
+     *
+     * @param info
+     */
+    var createMarker = function (info){
+      var marker = new google.maps.Marker({
+        map: $scope.map,
+        position: new google.maps.LatLng(info.location.lat, info.location.lng),
+        title: info.address,
+        icon: '../../images/Home-icon.png'
+      });
+      marker.content = '<div class="infoWindowContent">' + info.desc + '</div><a href="#/app/events/' + info.id +'"'+'> page </a>';
+
+      google.maps.event.addListener(marker, 'click', function(){
+        infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+        infoWindow.open($scope.map, marker);
+      });
+
+      $scope.markers.push(marker);
+    };
+
+      Apartment.find({filter: {include:"tickets"}},function(apartments){
+        $scope.apartments = apartments;
+        for (var i = 0; i < apartments.length; i++) {
+          createMarker(apartments [i]);
+        }
+      });
+
     // Bias the SearchBox results towards places that are within the bounds of the
     // current map's viewport.
     google.maps.event.addListener($scope.map, 'bounds_changed', function() {
@@ -91,4 +121,30 @@ angular.module('com.module.files')
       searchBox.setBounds(bounds);
     });
 
+    $scope.priceLimit = 2000;
+    $scope.sizeLimit = 55;
+
+    $scope.formFields = [{
+      key: 'value',
+      type: 'date',
+      templateOptions: {
+        label: gettextCatalog.getString('Choose Date')
+      }
+    }];
+
+    $scope.formOptions = {
+      uniqueFormId: true,
+      hideSubmit: false,
+      submitCopy: gettextCatalog.getString('Save')
+    };
+
+    $scope.updateMap = function(){
+      for (var i = 0; i < $scope.markers.length; i++) {
+        $scope.markers[i].setMap(null);
+      }
+      for (var i = 0; i < $scope.apartments.length; i++) {
+        if($scope.apartments[i].tickets[0].price <= $scope.priceLimit && $scope.apartments[i].tickets[0].area <= $scope.sizeLimit)
+          createMarker($scope.apartments[i]);
+      }
+    }
   });

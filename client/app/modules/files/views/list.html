@@ -1,6 +1,25 @@
+
+<div ng-class="show ? '': 'col-md-7'">
 <div id="map"></div>
-<div id="class" ng-repeat="marker in markers | orderBy : 'title'">
-  <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
-</div>
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+</div>
+
+<div id="slideout">
+  <img  ng-mouseover="show=false; " ng-mouseleave="show=true" src="../../images/search.png" alt="" />
+  <div ng-mouseenter="show=false;" ng-mouseleave="show=true" id="slideout_inner">
+    <form>
+        <span class="pull-right"><span ng-bind="priceLimit" class="ng-binding">950</span> שח</span>
+        <input type="range" ng-change="updateMap()" ng-model="priceLimit" min="1000" max="6000" step="25" style="width: 100%">
+        <span class="pull-right"><span ng-bind="sizeLimit" class="ng-binding">950</span> ms</span>
+        <input type="range" ng-change="updateMap()" ng-model="sizeLimit" min="30" max="200" step="25" style="width: 100%">
+        <select style="width: 100%">
+          <option value="volvo">Couple</option>
+          <option value="saab">2 Roommates</option>
+          <option value="mercedes">3 Roommates</option>
+          <option value="audi">4 Roommates</option>
+        </select>
+        <formly-form model="calendarDay" fields="formFields" options="formOptions"></formly-form>
+    </form>
+  </div>
+</div>
 

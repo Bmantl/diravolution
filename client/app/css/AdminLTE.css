@@ -3672,14 +3672,8 @@ Yehuda's
 #friendslist li a img { float: left; margin-right: 5px; }
 
 /*MAP*/
-#map-canvas {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 #map {
-  height:420px;
+  height:450px;
   margin: 0;
   padding: 0;
 }
@@ -3734,15 +3728,15 @@ Yehuda's
 
 
 /*Landing view area*/
-h1 {
-  font-family: 'font-family: 'Source Sans Pro', sans-serif;', sans-serif;
-  font-size: 4em;
-  font-weight: 900;
-  letter-spacing: -3px;
-  margin: 0 0 20px;
-  text-align: center;
-  text-shadow: 1px 1px 0 #fff, 2px 2px 0 #bbb;
-}
+/*h1 {*/
+  /*font-family: 'font-family: 'Source Sans Pro', sans-serif;', sans-serif;*/
+  /*font-size: 4em;*/
+  /*font-weight: 900;*/
+  /*letter-spacing: -3px;*/
+  /*margin: 0 0 20px;*/
+  /*text-align: center;*/
+  /*text-shadow: 1px 1px 0 #fff, 2px 2px 0 #bbb;*/
+/*}*/
 hr {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #fff;
@@ -3849,4 +3843,44 @@ hr {
     width: 100%;
   }
 
+}
+
+/*Search Nav Bar Button*/
+#slideout {
+  position: fixed;
+  top: 20%;
+  right: 0;
+  width: 35px;
+  height: 30%;
+  padding: 12px 0;
+  text-align: center;
+  background: #009540;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  border-radius: 0 0px 0px 0;
+}
+#slideout_inner {
+  position: fixed;
+  top: 20%;
+  right: -100%;
+  background: #009540;
+  width: 37%;
+  padding: 25px;
+  height: 500px;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  text-align: left;
+  -webkit-border-radius: 0 0 5px 0;
+  -moz-border-radius: 0 0 5px 0;
+  border-radius: 0 0 5px 0;
+}
+
+#slideout:hover #slideout_inner {
+  right: 0;
 }

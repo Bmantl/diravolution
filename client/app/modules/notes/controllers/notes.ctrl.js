@@ -1,10 +1,9 @@
 'use strict';
 var app = angular.module('com.module.notes');
 
-app.controller('NotesCtrl', function($scope, $state, $stateParams) {
+app.controller('NotesCtrl', function($scope, $rootScope, $state, $stateParams) {
   $scope.setCity = function(lati,long) {
-    console.log('clicked' + lati+ ' '+ long);
-    $scope.savedCity = {lat : lati, lng:long }
+    $rootScope.savedCity = {lat : lati, lng:long }
   };
 
 });
