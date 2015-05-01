@@ -32,7 +32,7 @@
       "model": "Discussion",
       "foreignKey": "apartmentId"
     },
-    "ticket":{
+    "tickets":{
       "type": "hasMany",
       "model": "Ticket",
       "foreignKey": "apartmentId"
